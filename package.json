@@ -4,7 +4,12 @@
   "description": "Landing page for natours",
   "main": "index.js",
   "scripts": {
-    "compile:sass-natours": "node-sass Natours/sass/main.scss Natours/css/style.css -w"
+    "watch:sass-natours": "node-sass Natours/sass/main.scss Natours/css/style.css -w",
+    "compile:sass-natours": "node-sass Natours/sass/main.scss Natours/css/style.comp.css",
+    "concat:css-natours": "concat -o Natours/css/style.concat.css Natours/css/icon-font.css Natours/css/style.comp.css",
+    "prefix:css-natours": "postcss --use autoprefixer -b \"last 10 version\" Natours/css/style.concat.css -o Natours/css/style.prefix.css",
+    "compress:css-natours": "node-sass Natours/css/style.prefix.css Natours/css/style.css --output-style compressed",
+    "build:css-natours": "npm-run-all compile:sass-natours concat:css-natours prefix:css-natours compress:css-natours"
   },
   "repository": {
     "type": "git",
@@ -17,6 +22,10 @@
   },
   "homepage": "https://github.com/Critchleyb/Udemy-Advanced-CSS-SASS#readme",
   "devDependencies": {
-    "node-sass": "^4.14.1"
+    "autoprefixer": "^9.8.0",
+    "concat": "^1.0.3",
+    "node-sass": "^4.14.1",
+    "npm-run-all": "^4.1.5",
+    "postcss-cli": "^7.1.1"
   }
 }
