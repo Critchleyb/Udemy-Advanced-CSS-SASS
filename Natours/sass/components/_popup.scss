@@ -9,10 +9,13 @@
     opacity: 0;
     visibility: hidden;
     transition: all .3s;
+    text-align: center;
 
     &__content {
         display: table;
-        background-color: $color-white;
+        background-image: linear-gradient(to bottom, rgba($color-black,.5),rgba($color-black,.2)), url(../img/nat-9.jpg);
+        background-size: cover;
+        background-position: 0% 80%;
         border-radius: 3px;
         box-shadow: 0 2rem 4rem rgba($color-black,.2);
         position: absolute;
@@ -22,6 +25,13 @@
         transform: translate(-50%,-50%) scale(0);
         opacity: 0;
         transition: all .4s .2s;
+        padding: 4rem;
+
+        @include respond(tab-port) {
+            background-position: center bottom;
+            width: auto;
+            width: 90%;
+        }
     }
 
     &:target &__content {
@@ -29,36 +39,11 @@
         opacity: 1;
     }
 
-    &__left {
-        height: 100%;
-        width: 33.33333%;
-        display: table-cell;
-        transform: translateX(-1px);
-    }
-
-    &__right {
-        width: 66.66667%;
-        display: table-cell;
-        vertical-align: middle;
-        padding: 3rem 5rem;
-    }
-
-    &__img {
-        display: block;
-        width: 99%;
-
-        &--1 {
-            border-top-left-radius: 3px;
-        }
-
-        &--2 {
-            border-bottom-left-radius: 3px;
-        }
-    }
-
     &__text {
         font-size: 1.4rem;
         margin-bottom: 4rem;
+        color: $color-white;
+        text-align: left;
 
         -moz-column-count: 2;
         column-count: 2;
@@ -68,6 +53,26 @@
              column-rule: 1px solid $color-grey-light-2;
 
         -webkit-hyphens: auto;-ms-hyphens: auto;hyphens: auto;
+
+        @include respond(tab-land) {
+            font-size: 1.5rem;
+            -moz-column-count: 1;
+            column-count: 1;
+            -moz-column-gap: 0;
+                 column-gap: 0;
+            -moz-column-rule: 0;
+                 column-rule: 0;
+        }
+
+        @include respond(phone) {
+            font-size: 1.3rem;
+            -moz-column-count: 1;
+            column-count: 1;
+            -moz-column-gap: 0;
+                 column-gap: 0;
+            -moz-column-rule: 0;
+                 column-rule: 0;
+        }
     }
 
     &:target {
@@ -78,7 +83,7 @@
     &__close {
         &:link,
         &:visited {
-            color: $color-grey-dark;
+            color: $color-white;
             position: absolute;
             top: 2.5rem;
             right: 2.5rem;
