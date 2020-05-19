@@ -13,10 +13,9 @@
 
     "watch:sass-trillo": "node-sass trillo/sass/main.scss trillo/css/style.css -w",
     "compile:sass-trillo": "node-sass trillo/sass/main.scss trillo/css/style.comp.css",
-    "concat:css-trillo": "concat -o trillo/css/style.concat.css trillo/css/icon-font.css trillo/css/style.comp.css",
-    "prefix:css-trillo": "postcss --use autoprefixer -b \"last 10 version\" trillo/css/style.concat.css -o trillo/css/style.prefix.css",
+    "prefix:css-trillo": "postcss --use autoprefixer -b \"last 10 version\" trillo/css/style.comp.css -o trillo/css/style.prefix.css",
     "compress:css-trillo": "node-sass trillo/css/style.prefix.css trillo/css/style.css --output-style compressed",
-    "build:css-trillo": "npm-run-all compile:sass-trillo concat:css-trillo prefix:css-trillo compress:css-trillo"
+    "build:css-trillo": "npm-run-all compile:sass-trillo prefix:css-trillo compress:css-trillo"
   },
   "repository": {
     "type": "git",
