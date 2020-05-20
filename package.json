@@ -15,7 +15,13 @@
     "compile:sass-trillo": "node-sass trillo/sass/main.scss trillo/css/style.comp.css",
     "prefix:css-trillo": "postcss --use autoprefixer -b \"last 10 version\" trillo/css/style.comp.css -o trillo/css/style.prefix.css",
     "compress:css-trillo": "node-sass trillo/css/style.prefix.css trillo/css/style.css --output-style compressed",
-    "build:css-trillo": "npm-run-all compile:sass-trillo prefix:css-trillo compress:css-trillo"
+    "build:css-trillo": "npm-run-all compile:sass-trillo prefix:css-trillo compress:css-trillo",
+
+    "watch:sass-nexter": "node-sass nexter/sass/main.scss nexter/css/style.css -w",
+    "compile:sass-nexter": "node-sass nexter/sass/main.scss nexter/css/style.comp.css",
+    "prefix:css-nexter": "postcss --use autoprefixer -b \"last 10 version\" nexter/css/style.comp.css -o nexter/css/style.prefix.css",
+    "compress:css-nexter": "node-sass nexter/css/style.prefix.css nexter/css/style.css --output-style compressed",
+    "build:css-nexter": "npm-run-all compile:sass-nexter prefix:css-nexter compress:css-nexter"
   },
   "repository": {
     "type": "git",
