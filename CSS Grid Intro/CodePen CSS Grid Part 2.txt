@@ -1,0 +1,147 @@
+HTML:
+
+<div class="challenge">
+  <header class="header">Header</header>
+  <div class="item item--1">Small Box 1</div>
+  <div class="item item--2">Small Box 2</div>
+  <div class="item item--3">Small Box 3</div>
+  <div class="item item--4">Sidebar</div>
+  <div class="item item--5">Main Content</div>
+  <footer class="footer">Footer</footer>
+</div>
+
+SCSS:
+
+//METHOD 1: LINE NUMBERS
+/*
+.challenge {
+  font-size: 20px;
+  font-family: sans-serif;
+  color: #fff;
+  width: 1000px;
+  background-color: #eee;
+    
+  display: grid;
+  grid-template-rows: 100px 200px 400px 100px;
+  grid-template-columns: repeat(3,1fr) 200px;
+  grid-gap: 30px;  
+}
+
+.header {
+  background-color: orangered;
+  padding: 10px;
+  
+  grid-column: 1 / -1;
+}
+
+.footer {
+  background-color: orangered;
+  padding: 10px;
+  
+  grid-column: 1 / -1;
+}
+
+.item {
+  background-color: orangered;
+  padding: 10px;
+  
+  &--4 {
+    grid-row: 2 / 4;
+    grid-column: 4 / -1;
+  }
+  
+  &--5 {
+    grid-column: 1/ span 3;
+  }
+}
+*/
+
+//METHOD 2: LINE NAMES
+/*
+.challenge {
+  font-size: 20px;
+  font-family: sans-serif;
+  color: #fff;
+  width: 1000px;
+  background-color: #eee;
+    
+  display: grid;
+  grid-template-rows: [header-start] 100px [header-end box-start] 200px [box-end main-start] 400px [main-end footer-start] 100px [footer-end];
+  grid-template-columns: repeat(3, [col-start] 1fr [col-end]) 200px [grid-end];
+  grid-gap: 30px;  
+}
+
+.header {
+  background-color: orangered;
+  padding: 10px;
+  
+  grid-column: col-start 1 / grid-end;
+}
+
+.footer {
+  background-color: orangered;
+  padding: 10px;
+  
+  grid-column: col-start 1 / grid-end;
+}
+
+.item {
+  background-color: orangered;
+  padding: 10px;
+  
+  &--4 {
+    grid-row: box-start / main-end;
+    grid-column: col-end 3 / grid-end;
+  }
+  
+  &--5 {
+    grid-column: col-start 1 / col-end 3;
+  }
+}
+*/
+
+//METHOD 3: NAME GRID AREAS
+.challenge {
+  font-size: 20px;
+  font-family: sans-serif;
+  color: #fff;
+  width: 1000px;
+  background-color: #eee;
+  
+  grid-template-areas: "head head head head"
+                       "box  box  box  side"
+                       "main main main side"
+                       "foot foot foot foot";
+  
+  display: grid;
+  grid-template-rows: 100px 200px 400px 100px;
+  grid-template-columns: repeat(3,1fr) 200px;
+  grid-gap: 30px;  
+}
+
+.header {
+  background-color: orangered;
+  padding: 10px;
+  
+  grid-area: head;
+}
+
+.footer {
+  background-color: orangered;
+  padding: 10px;
+  
+  grid-area: foot;
+}
+
+.item {
+  background-color: orangered;
+  padding: 10px;
+  
+  &--4 {
+    grid-area: side
+  }
+  
+  &--5 {
+    grid-area: main
+  }
+}
